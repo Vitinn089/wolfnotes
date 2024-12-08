@@ -4,13 +4,14 @@ import { FiPlus, FiX } from "react-icons/fi";
 
 import {Container } from './styled'
 
-export function NoteItem ({isNew, value, onClick, ...rest}) {
+export function NoteItem ({isNew, value, onClick, onKeyDown, ...rest}) {
     return (
         <Container isNew={isNew}>
             <input 
                 type="text" 
                 value={value}
                 readOnly={!isNew}
+                onKeyDown={onKeyDown}
                 {...rest}
             />
 
@@ -28,5 +29,6 @@ export function NoteItem ({isNew, value, onClick, ...rest}) {
 NoteItem.propTypes = {
     isNew: PropTypes.bool,
     value: PropTypes.string.isRequired,
+    onKeyDown: PropTypes.func,
     onClick: PropTypes.func.isRequired
 }

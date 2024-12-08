@@ -28,7 +28,11 @@ export function SignUp() {
             else
                 alert("Não foi possível cadastrar")
         })
+    }
 
+    function handlePressEnter(e) {
+        if (e.key === 'Enter')
+            handleSignUp()
     }
 
     return(
@@ -58,6 +62,7 @@ export function SignUp() {
                     type="password"
                     icon={FiLock}
                     onChange={e => setPassword(e.target.value)}
+                    onKeyDown={handlePressEnter}
                 />
                 
                 <Button title="Cadastrar" onClick={handleSignUp} />

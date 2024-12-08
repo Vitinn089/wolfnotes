@@ -61,6 +61,16 @@ export function New () {
         handleBack()
     }
 
+    function handlePressEnterInNewLink(e) {
+        if (e.key === 'Enter')
+            handleAddLink()
+    }
+
+    function handlePressEnterInNewTag(e) {
+        if (e.key === 'Enter')
+            handleAddTag()
+    }
+
     return (
         <Container>
             <Header />
@@ -103,6 +113,7 @@ export function New () {
                             value={newLink}
                             onChange={e => setNewLink(e.target.value)}
                             onClick={handleAddLink}
+                            onKeyDown={handlePressEnterInNewLink}
                         />
                     </Section>
 
@@ -128,6 +139,7 @@ export function New () {
                                 value={newTag}
                                 onChange = {(e) => setNewTag(e.target.value)}
                                 onClick={handleAddTag} 
+                                onKeyDown={handlePressEnterInNewTag}
                             />
                         </div>
                     </Section>

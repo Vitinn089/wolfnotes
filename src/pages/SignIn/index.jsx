@@ -18,6 +18,11 @@ export function SignIn() {
         signIn({email, password})
     }
     
+    function handlePressEnter(e) {
+        if (e.key === 'Enter')
+            handleSignIn()
+    }
+    
     return(
         <Container>
             <Form>
@@ -37,6 +42,7 @@ export function SignIn() {
                     type="password"
                     icon={FiLock}
                     onChange={(e) => setPassword(e.target.value)}
+                    onKeyDown={handlePressEnter}
                 />
                 
                 <Button title="Entrar" onClick={handleSignIn} />
